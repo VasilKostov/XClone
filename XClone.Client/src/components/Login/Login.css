@@ -1,0 +1,70 @@
+/* Center the login form on the page */
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #333; /* Background color of the page */
+}
+
+/* Style the login box */
+.login-box {
+    background-color: #000; /* Pitch black background for the login box */
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 300px; /* Fixed width to make it a square-like shape */
+}
+
+    .login-box h2 {
+        margin-bottom: 20px;
+        font-size: 24px;
+        color: #fff; /* White text color for the heading */
+    }
+
+.login-input {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ddd; /* Light gray border */
+    border-radius: 5px;
+    font-size: 16px;
+    background-color: #fff; /* White background for input fields */
+    color: #333; /* Dark text color for the input fields */
+    box-sizing: border-box;
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    background-color: #fff; /* White background for the button */
+    border: 1px solid #ddd; /* Light gray border for the button */
+    border-radius: 5px;
+    color: #333; /* Dark text color */
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.register-text {
+    margin-top: 15px;
+    font-size: 14px;
+    color: #fff; /* White text for the register text */
+}
+
+.register-button {
+    background: none;
+    border: none;
+    color: #fff; /* Keep the register text white */
+    cursor: pointer;
+    text-decoration: underline;
+    font-size: 14px;
+}
+
+    /* Remove hover effects */
+    .login-button:hover,
+    .register-button:hover {
+        background-color: initial; /* No change on hover */
+        border-color: initial; /* No border change on hover */
+        color: inherit; /* Keep the text color same on hover */
+    }

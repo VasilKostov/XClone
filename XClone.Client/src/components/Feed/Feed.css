@@ -1,0 +1,276 @@
+/* Container for the 3 columns */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr; /* 3 columns, main post in the center */
+    height: 100vh; /* Ensure the container takes full height */
+    gap: 0;
+    width: 100%; /* Full width */
+}
+
+.pre-sidebar {
+    background-color: #111;
+    display: flex;
+    justify-content: flex-end; /* Align content to the right inside pre-sidebar */
+    height: 100vh; /* Ensure it takes full height */
+}
+
+.sidebar {
+    background-color: #111;
+    border-right: 2px solid #333;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ensures space is distributed properly */
+    padding: 20px 10px;
+    position: sticky;
+    box-sizing: border-box; /* Ensures padding is included in the height calculation */
+    top: 0;
+    align-items: flex-start;
+    width: 40%;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.sidebar-button {
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: left;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 25px;
+    padding: 10px 10px;
+}
+
+    .sidebar-button:hover {
+        background-color: #222;
+        border-radius: 25px;
+    }
+
+.sidebar-button-x {
+    padding: 10px;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.2s ease;
+}
+
+    .sidebar-button-x:hover {
+        background-color: #222;
+    }
+
+    .sidebar-button-x:focus {
+        outline: none;
+    }
+
+.x-logo {
+    width: 20px;
+    height: 20px;
+}
+
+.sidebar-bottom {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    transition: background-color 0.2s ease;
+    margin-top: auto; /* Pushes it to the bottom */
+}
+
+    .sidebar-bottom:hover {
+        background-color: #222;
+        border-radius: 25px;
+    }
+
+.sidebar-button:focus {
+    outline: none;
+}
+
+.user-avatar {
+    width: 40px;
+    height: 40px;
+    background-color: grey;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.user-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.user-name {
+    color: white;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+.user-email {
+    color: grey;
+    font-size: 14px;
+}
+
+
+/* Posts section styling */
+.posts {
+    background-color: #111;
+    border-left: 1px solid #333;
+    border-right: 1px solid #333;
+    /*padding: 20px;*/
+}
+
+.post-creation {
+    padding: 15px 20px;
+}
+/* Each post card */
+.post-card {
+    background-color: #111;
+    /*padding: 15px;*/
+    padding: 15px 20px;
+    color: white;
+    border-top: 1px solid #333;
+    border-bottom: 1px solid #333;
+}
+
+.post-header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+}
+
+.post-avatar {
+    width: 50px;
+    height: 50px;
+    background-color: grey;
+    border-radius: 50%;
+    flex-shrink: 0;
+}
+
+.post-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex: 1;
+}
+
+.post-name-email {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+    font-weight: bold;
+}
+
+.post-name {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.post-email {
+    font-size: 15px;
+    color: grey;
+}
+
+.post-content {
+    font-size: 14px;
+    line-height: 1.5;
+}
+
+/* Empty column styling */
+.empty-column {
+    background-color: #111;
+    border-left: 1px solid #333;
+    min-height: 100vh;
+}
+
+textarea {
+    width: 100%;
+    padding: 10px;
+    background-color: #111; /* match your background */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+    resize: none;
+    outline: none; /* prevent glow or white border */
+    font-size: 16px; /* or larger, like 18px if you prefer */
+    line-height: 1.5; /* improves readability */
+}
+
+    textarea:focus,
+    textarea:hover {
+        border: none;
+        outline: none;
+        background-color: #111; /* keep background the same */
+    }
+
+/* Post button */
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #555;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+    button:hover {
+        background-color: #666;
+    }
+
+.post-creation-header {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 10px;
+    align-items: flex-start;
+    position: relative; /* Make it a positioning context */
+}
+
+.post-input-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.button-wrapper {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 10px;
+}
+
+.post-button {
+    background-color: #555;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+    .post-button.enabled {
+        background-color: white;
+        color: #333;
+    }
+
+    .post-button:disabled {
+        background-color: #666;
+        cursor: not-allowed;
+    }

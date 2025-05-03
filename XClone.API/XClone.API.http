@@ -1,0 +1,6 @@
+@XClone.API_HostAddress = http://localhost:5206
+
+GET {{XClone.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
