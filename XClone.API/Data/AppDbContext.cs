@@ -1,6 +1,7 @@
 ﻿namespace XClone.API.Data;
 
 using Microsoft.EntityFrameworkCore;
+using MySql.EntityFrameworkCore.Extensions;
 using XClone.API.Models;
 
 public class AppDbContext : DbContext
@@ -15,7 +16,7 @@ public class AppDbContext : DbContext
     {
         modelBuilder.Entity<Post>()
             .HasOne(p => p.User)
-            .WithMany()  // or .HasMany() if the reverse navigation property exists
+            .WithMany() // or .HasMany() if the reverse navigation property exists
             .HasForeignKey(p => p.UserId);
     }
 }
