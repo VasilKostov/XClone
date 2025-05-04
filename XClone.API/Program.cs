@@ -13,10 +13,12 @@ namespace XClone.API
     {
         public static void Main(string[] args)
         {
+            DotNetEnv.Env.Load();
             var builder = WebApplication.CreateBuilder(args);
             builder.Services.AddControllers();
+            var connectionString = Environment.GetEnvironmentVariable("CONNECTION_STRING");
             builder.Services.AddDbContext<AppDbContext>(options =>
-                options.UseMySQL(builder.Configuration.GetConnectionString("Default")));
+                options.UseNpgsql(connectionString));
             builder.Services.AddCors(options =>
             {
                 options.AddPolicy("AllowAll", policy =>

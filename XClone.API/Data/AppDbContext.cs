@@ -1,7 +1,6 @@
 ﻿namespace XClone.API.Data;
 
 using Microsoft.EntityFrameworkCore;
-using MySql.EntityFrameworkCore.Extensions;
 using XClone.API.Models;
 
 public class AppDbContext : DbContext
