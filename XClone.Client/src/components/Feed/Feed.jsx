@@ -50,7 +50,7 @@ const Feed = () => {
 
         if (response.ok) {
             setNewPost(""); // Clear the input field
-            const updatedPosts = await fetch("http://localhost:7152/api/posts", {
+            const updatedPosts = await fetch(`${apiUrl}/api/posts`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
