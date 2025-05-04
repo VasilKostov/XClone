@@ -7,12 +7,13 @@ const Feed = () => {
     const [newPost, setNewPost] = useState("");
     const [user, setUser] = useState(null);
     const navigate = useNavigate();
+    const apiUrl = import.meta.env.VITE_API_URL;
 
     // Fetch posts on initial render
     useEffect(() => {
         const fetchPosts = async () => {
             const token = localStorage.getItem("token");
-            const response = await fetch("http://localhost:7152/api/posts", {
+            const response = await fetch(`${apiUrl}/api/posts`, {
                 headers: {
                     Authorization: `Bearer ${token}`,
                 },
@@ -38,7 +39,7 @@ const Feed = () => {
         if (!newPost.trim()) return;
 
         const token = localStorage.getItem("token");
-        const response = await fetch("http://localhost:7152/api/posts", {
+        const response = await fetch(`${apiUrl}/api/posts`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
