@@ -42,6 +42,7 @@
     cursor: pointer;
     padding: 10px;
     border-radius: 5px;
+    max-width: 200px;
     transition: background-color 0.2s ease;
     margin-top: auto; /* Pushes it to the bottom */
 }
@@ -136,11 +137,19 @@
     color: white;
     font-weight: bold;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60px; /* adjust as needed */
 }
 
 .user-email {
     color: grey;
     font-size: 14px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 60px; /* adjust as needed */
 }
 
 
