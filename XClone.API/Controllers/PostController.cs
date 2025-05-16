@@ -40,7 +40,8 @@ public class PostController : ControllerBase
                     p.Content,
                     p.CreatedAt,
                     p.User.Name,
-                    p.User.Email
+                    p.User.Email,
+                    UserId = p.User.Id,
                 })
                 .ToListAsync();
 

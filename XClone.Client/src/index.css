@@ -73,7 +73,8 @@ body {
     margin: 0;
     padding: 0;
     min-height: 100%; /* allow full height */
-    background-color: black; 
+    background-color: black;
     flex-direction: column;
     color: white;
+    overflow-x: hidden;
 }

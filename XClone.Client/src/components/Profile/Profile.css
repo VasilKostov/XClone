@@ -49,7 +49,40 @@
         background-color: #222;
         border-radius: 25px;
     }
-
+.sidebar-button-post {
+    width: 120px;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 25px;
+    padding: 10px 10px;
+}
+.sidebar-button-edit {
+    width: 120px;
+    background: none;
+    border: 2px;
+    color: white;
+    font-size: 16px;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    border-radius: 25px;
+    padding: 10px 10px;
+}
 .sidebar-button {
     width: 120px;
     background: none;
@@ -93,23 +126,7 @@
     .sidebar-button-x:focus {
         outline: none;
     }
-.sidebar-button-post {
-    width: 120px;
-    background: none;
-    border: none;
-    color: white;
-    font-size: 16px;
-    padding: 10px;
-    text-align: center;
-    cursor: pointer;
-    transition: background-color 0.2s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-    border-radius: 25px;
-    padding: 10px 10px;
-}
+
 .x-logo {
     width: 20px;
     height: 20px;
@@ -152,8 +169,11 @@
     /*padding: 20px;*/
 }
 
-.post-creation {
-    padding: 15px 20px;
+.profile {
+    padding: 25px 20px;
+    height: 400px;
+    flex-direction: column;
+
 }
 /* Each post card */
 .post-card {
@@ -172,9 +192,10 @@
     align-items: flex-start;
 }
 
-.post-avatar {
-    width: 50px;
-    height: 50px;
+.profile-avatar {
+    margin-top:100px;
+    width: 140px;
+    height: 140px;
     background-color: grey;
     border-radius: 50%;
     flex-shrink: 0;

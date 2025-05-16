@@ -20,5 +20,6 @@ public class User
     public string Name { get; set; } = string.Empty;
     public string ProfilePictureUrl { get; set; } = string.Empty;
     public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    public byte[]? ProfileImage { get; set; }
 }
 

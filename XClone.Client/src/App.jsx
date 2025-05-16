@@ -25,6 +25,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import Feed from './components/Feed/Feed.jsx'
+import Profile from './components/Profile/Profile.jsx'
 
 function App() {
     return (
@@ -34,6 +35,7 @@ function App() {
                 <Route path="/login" element={<Login />} />
                 <Route path="/register" element={<Register />} />
                 <Route path="/feed" element={<Feed />} />
+                <Route path="/profile" element={<Profile />} />
             </Routes>
         </Router>
     )
