@@ -58,17 +58,44 @@ const Profile = () => {
         if (response.ok) {
             setModalPost("");
 
-            const updated = await fetch(`${apiUrl}/api/posts`, {
-                headers: { Authorization: `Bearer ${token}` },
-            }).then((res) => res.json());
+            if (!userId) return navigate("/feed");  // If no userId, go back to feed
+            const fetchPosts = async () => {
 
-            if (textareaRef.current) {
-                textareaRef.current.style.height = "auto";
-                textareaRef.current.style.height = `${textareaRef.current.scrollHeight}px`;
-            }
+                const token = localStorage.getItem("token");
+                if (!token) return navigate("/login");
 
-            setUser(updated.user);
-            setPosts(updated.posts);
+                const response = await fetch(`${apiUrl}/api/profile/getprofile`, {
+                    method: "POST",  // Assuming it's a POST request
+                    headers: {
+                        "Content-Type": "application/json",
+                        Authorization: `Bearer ${token}`,
+                    },
+                    body: JSON.stringify(userId),  // Pass userId in the request body
+                });
+
+                if (response.status === 401) {
+                    navigate("/login");
+                    return;
+                }
+                if (response.status === 404) {
+                    navigate("/feed");
+                    return;
+                }
+
+                if (response.status === 200) {
+                    const data = await response.json();
+                    setUser(data.user);
+                    setPosts(data.posts);
+                    setProfile(data.profile);
+                    setSameProfile(data.sameUser);
+
+                    setEditName(data.profile.name);
+                    setEditProfilePicture(null);
+                }
+                setLoading(false); // Once data is fetched, set loading to false
+            };
+
+            fetchPosts();
             handleCloseModal();
         }
     }
@@ -112,15 +139,15 @@ const Profile = () => {
 
         fetchPosts();
     }, [apiUrl, userId, navigate]);
-    function arrayBufferToBase64(buffer) {
-        let binary = '';
-        const bytes = new Uint8Array(buffer);
-        const len = bytes.byteLength;
-        for (let i = 0; i < len; i++) {
-            binary += String.fromCharCode(bytes[i]);
-        }
-        return window.btoa(binary);
-    }
+    //function arrayBufferToBase64(buffer) {
+    //    let binary = '';
+    //    const bytes = new Uint8Array(buffer);
+    //    const len = bytes.byteLength;
+    //    for (let i = 0; i < len; i++) {
+    //        binary += String.fromCharCode(bytes[i]);
+    //    }
+    //    return window.btoa(binary);
+    //}
     const handleEditProfile = async () => {
         const token = localStorage.getItem("token");
         if (!token) return navigate("/login");
