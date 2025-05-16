@@ -26,6 +26,7 @@ import Login from './components/Login/Login.jsx'
 import Register from './components/Register/Register.jsx'
 import Feed from './components/Feed/Feed.jsx'
 import Profile from './components/Profile/Profile.jsx'
+import Post from './components/Post/Post.jsx'
 
 function App() {
     return (
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/register" element={<Register />} />
                 <Route path="/feed" element={<Feed />} />
                 <Route path="/profile" element={<Profile />} />
+                <Route path="/post" element={<Post />} />
             </Routes>
         </Router>
     )

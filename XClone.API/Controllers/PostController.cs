@@ -16,7 +16,44 @@ public class PostController : ControllerBase
     {
         _db = db;
     }
+    [HttpPost("getpost")]
+    [Authorize]
+    public async Task<IActionResult> GetPost([FromBody] int postId)
+    {
+        try
+        {
+            string? userIdClaim = User.FindFirst(ClaimTypes.NameIdentifier)?.Value;
+            if (userIdClaim == null || !Guid.TryParse(userIdClaim, out Guid userId))
+                return Unauthorized("Invalid user ID in token.");
 
+            var user = await _db.Users.FindAsync(userId);
+            if (user == null)
+                return Unauthorized("User not found.");
+
+            var post = await _db.Posts
+                .Include(p => p.User)
+                .Where(p => p.Id == postId)
+                .Select(p => new
+                {
+                    p.Id,
+                    p.Content,
+                    p.CreatedAt,
+                    p.User.Name,
+                    p.User.Email,
+                    UserId = p.User.Id,
+                })
+                .FirstOrDefaultAsync();
+            if (post is null)
+            {
+                return BadRequest("No post.");
+            }
+            return Ok(new { user, post });
+        }
+        catch (Exception ex)
+        {
+            return StatusCode(500, ex.Message);
+        }
+    }
     [HttpGet]
     [Authorize]
     public async Task<IActionResult> GetFeed()

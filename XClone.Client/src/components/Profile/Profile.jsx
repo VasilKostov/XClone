@@ -193,7 +193,8 @@ const Profile = () => {
         }
     };
 
-    const handleProfileNavigation = (userId) => {
+    const handleProfileNavigation = (e, userId) => {
+        e.stopPropagation(); // prevent card click
         navigate("/profile", { state: { userId } });
     };
     return (
@@ -252,21 +253,40 @@ const Profile = () => {
                                         year: "numeric"
                                     })}</h4>
                                 </div>
-                            </section>
-                            {posts.map((post, index) => (
-                                <div key={index} className="post-card">
-                                    <div className="post-header">
-                                        <button className="post-avatar" onClick={() => handleProfileNavigation(post.userId)}></button>
-                                        <div className="post-info">
-                                            <div className="post-name-email">
-                                                <span className="post-name">{post.name}</span>
-                                                <span className="post-email">{post.email}</span>
+                                </section>
+                                {posts.map((post, index) => (
+                                    <div key={index} className="post-card" onClick={() => navigate("/post", { state: { postId: post.id } })}>
+                                        <div className="post-header">
+                                            <button className="post-avatar" onClick={(e) => handleProfileNavigation(e, post.userId)}></button>
+
+                                            <div className="post-info">
+                                                <div className="post-name-email">
+                                                    <span className="post-name" onClick={(e) => handleProfileNavigation(e, post.userId)} style={{ cursor: "pointer" }}>
+                                                        {post.name}
+                                                    </span>
+                                                    <span className="post-email" onClick={(e) => handleProfileNavigation(e, post.userId)} style={{ cursor: "pointer", color: "grey" }}>
+                                                        {post.email}
+                                                    </span>
+                                                </div>
+                                                <div className="post-content">{post.content}</div>
                                             </div>
-                                            <div className="post-content">{post.content}</div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
+                                ))}
+                            {/*{posts.map((post, index) => (*/}
+                            {/*    <div key={index} className="post-card">*/}
+                            {/*        <div className="post-header">*/}
+                            {/*            <button className="post-avatar" onClick={() => handleProfileNavigation(post.userId)}></button>*/}
+                            {/*            <div className="post-info">*/}
+                            {/*                <div className="post-name-email">*/}
+                            {/*                    <span className="post-name">{post.name}</span>*/}
+                            {/*                    <span className="post-email">{post.email}</span>*/}
+                            {/*                </div>*/}
+                            {/*                <div className="post-content">{post.content}</div>*/}
+                            {/*            </div>*/}
+                            {/*        </div>*/}
+                            {/*    </div>*/}
+                            {/*))}*/}
                         </main>
 
                         <div className="empty-column"></div>

@@ -114,8 +114,11 @@ const Feed = () => {
             handleCloseModal();
         }
     };
-
-    const handleProfileNavigation = (userId) => {
+    const handleProfileNavigation = ( userId) => {
+        navigate("/profile", { state: { userId } });
+    };
+    const handleProfileNavigation2 = (e, userId) => {
+        e.stopPropagation(); // prevent card click
         navigate("/profile", { state: { userId } });
     };
     return (
@@ -184,13 +187,18 @@ const Feed = () => {
                     </section>
 
                     {posts.map((post, index) => (
-                        <div key={index} className="post-card">
+                        <div key={index} className="post-card" onClick={() => navigate("/post", { state: { postId: post.id } })}>
                             <div className="post-header">
-                                <button className="post-avatar" onClick={() => handleProfileNavigation(post.userId)}></button>
+                                <button className="post-avatar" onClick={(e) => handleProfileNavigation2(e, post.userId)}></button>
+
                                 <div className="post-info">
                                     <div className="post-name-email">
-                                        <span className="post-name">{post.name}</span>
-                                        <span className="post-email">{post.email}</span>
+                                        <span className="post-name" onClick={(e) => handleProfileNavigation2(e, post.userId)} style={{ cursor: "pointer" }}>
+                                            {post.name}
+                                        </span>
+                                        <span className="post-email" onClick={(e) => handleProfileNavigation2(e, post.userId)} style={{ cursor: "pointer", color: "grey" }}>
+                                            {post.email}
+                                        </span>
                                     </div>
                                     <div className="post-content">{post.content}</div>
                                 </div>
@@ -208,7 +216,7 @@ const Feed = () => {
                         <button className="modal-close-button" onClick={handleCloseModal}>
                             ×
                         </button>
-                        <div style={{ paddingTop: "20px", paddingLeft: "20px"} }>
+                        <div style={{ paddingTop: "20px", paddingLeft: "20px" }}>
                             <div className="post-creation-header">
                                 <button className="post-avatar" onClick={() => handleProfileNavigation(user.id)}></button>
                                 <div className="post-input-wrapper">

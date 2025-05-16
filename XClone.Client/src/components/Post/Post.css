@@ -172,27 +172,14 @@
     padding: 15px 20px;
 }
 /* Each post card */
-/*.post-card {
-    background-color: #111;*/
-/*padding: 15px;*/
-/*padding: 15px 20px;
-    color: white;
-    border-top: 1px solid #333;
-    border-bottom: 1px solid #333;
-}*/
-.post-card {
+.post-cardv2 {
     background-color: #111;
+    /*padding: 15px;*/
     padding: 15px 20px;
     color: white;
     border-top: 1px solid #333;
     border-bottom: 1px solid #333;
-    transition: background-color 0.2s ease;
-    cursor: pointer;
 }
-
-    .post-card:hover {
-        background-color: #1a1a1a; /* slightly grayer */
-    }
 
 .post-header {
     display: flex;
@@ -225,20 +212,13 @@
 
 .post-name {
     font-weight: bold;
-    transition: text-decoration 0.2s ease-in-out;
     font-size: 16px;
 }
 
 .post-email {
     font-size: 15px;
     color: grey;
-    transition: text-decoration 0.2s ease-in-out;
 }
-
-    .post-name:hover,
-    .post-email:hover {
-        text-decoration: underline;
-    }
 
 .post-content {
     font-size: 14px;
@@ -359,3 +339,26 @@ button {
     width: 90%;
     max-width: 500px;
 }
+
+.button-back {
+    background: none;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 0;
+    margin: 0 !important;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+}
+
+    .button-back:focus {
+        outline: none;
+        box-shadow: none;
+    }
+
+    .button-back:hover {
+        background: none;
+        color: inherit;
+    }
